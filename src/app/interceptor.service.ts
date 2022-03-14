@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
@@ -14,9 +15,9 @@ export class InterceptorService implements HttpInterceptor{
     return next.handle(httpReq).pipe(
       tap(evet => {
         if(evet instanceof HttpResponse){
-          if(evet.body && evet.body.sucess){
-            console.log(evet);
-
+          console.log(evet);
+          if(evet.url?.includes("login")){
+            localStorage.setItem(`${environment.JWT_KEY}`,evet.body);
           }
         }
       }),

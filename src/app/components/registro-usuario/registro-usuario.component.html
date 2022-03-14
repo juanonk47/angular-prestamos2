@@ -1,0 +1,52 @@
+<mat-card-title class="title-card">¡Registrate!</mat-card-title>
+
+<mat-grid-list cols="2" rowHeight="4:2">
+  <form [formGroup]="form">
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error >El nombre es requerido</mat-error>
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefono</mat-label>
+        <input matInput formControlName="telefono">
+        <mat-error >El telefono es requerido</mat-error>
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+        <mat-error >El correo es requerido</mat-error>
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input id="userPassword" type="password" autocomplete="new-password"matInput formControlName="password">
+        <mat-error >El password es requerido</mat-error>
+      </mat-form-field>
+
+    </mat-grid-tile>
+  </form>
+</mat-grid-list>
+
+<mat-card-actions align="end">
+  <button (click)="back()" mat-raised-button color="primary">
+    <mat-icon>keyboard_backspace</mat-icon>
+    ¡Regresar!
+  </button>
+  <button mat-raised-button (click)="handleButtonRegister()" [disabled]="!this.form.valid" color="primary">¡Continuar!
+    <mat-icon>trending_flat</mat-icon>
+  </button>
+</mat-card-actions>

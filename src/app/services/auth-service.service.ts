@@ -21,7 +21,7 @@ export class AuthServiceService {
   }
 
   public Login(usuario: Usuario){
-    return this.http.get<String>(`${this.apiUrl}login`).pipe(
+    return this.http.post<String>(`${this.apiUrl}login`,usuario).pipe(
       retry(3)
     )
   }

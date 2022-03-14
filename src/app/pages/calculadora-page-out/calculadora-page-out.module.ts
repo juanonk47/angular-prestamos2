@@ -17,12 +17,17 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import { TablePagosComponent } from 'src/app/components/table-pagos/table-pagos.component';
+import { SolicitudPrestamoComponent } from 'src/app/components/solicitud-prestamo/solicitud-prestamo.component';
+import { RegistroUsuarioComponent } from 'src/app/components/registro-usuario/registro-usuario.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
   declarations: [
     CalculadoraPageOutComponent,
-    TablePagosComponent
+    TablePagosComponent,
+    SolicitudPrestamoComponent,
+    RegistroUsuarioComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +43,8 @@ import { TablePagosComponent } from 'src/app/components/table-pagos/table-pagos.
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ]
 })
 export class CalculadoraPageOutModule { }

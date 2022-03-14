@@ -19,8 +19,11 @@ const ELEMENT_DATA: any[] = [
 })
 export class TablePagosComponent implements OnInit {
   displayedColumns: string[] = ['No', 'fecha', 'monto'];
-  dataSource = ELEMENT_DATA;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  dataSource = [];
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.dataSource = data.dataSources;
+   }
   ngOnInit(): void {
   }
 

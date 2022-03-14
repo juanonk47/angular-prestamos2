@@ -1,47 +1,13 @@
 <div class="bg">
   <div class="center-section">
     <mat-card class="card-solicitud">
-
-      <mat-card-title class="title-card">¡Solicita tu crédito!</mat-card-title>
-      <br>
-      <form [formGroup]="form">
-        <mat-form-field class="full" appearance="fill">
-          <mat-label>¿Cuánto dinero quieres?</mat-label>
-          <input matInput type="number" formControlName="cantidad">
-          <mat-error *ngIf="this.form.get('cantidad')?.errors?.['min']">El valor minimo permitido es {{cal.min}}</mat-error>
-          <mat-error *ngIf="this.form.get('cantidad')?.errors?.['max']">El valor maximo permitido es {{cal.max}}</mat-error>
-          <mat-error *ngIf="this.form.get('cantidad')?.errors?.['required']">El valor es requerido</mat-error>
-        </mat-form-field>
-        <br>
-        <mat-slider class="full" color="primary" [value]="this.form.get('cantidad')?.value" (change)="handleValue($event)" thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000" [min]="cal.min" [max]="cal.max"
-          aria-label="units"></mat-slider>
-          <br><br>
-          <mat-form-field appearance="fill" class="full">
-            <mat-label>Escoge la fecha a pagar</mat-label>
-            <input matInput [min]="mindate" [matDatepicker]="datepicker" formControlName="fecha">
-            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-            <mat-datepicker #datepicker>
-              <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-              </mat-datepicker-actions>
-            </mat-datepicker>
-          </mat-form-field>
-      </form>
-
-      <button mat-raised-button (click)="openTable()">Mostrar mis pagos</button>
-
-
-      <mat-card-actions align="end">
-        <button mat-raised-button color="primary">¡Pedir mi crédito ya!
-          <mat-icon>trending_flat</mat-icon>
-        </button>
-      </mat-card-actions>
-
-
+      <app-solicitud-prestamo (buttonCredit)="handleSolicitud($event)" *ngIf="!hiddenSolicitud"></app-solicitud-prestamo>
+      <app-registro-usuario (returnSolicitud)="hiddenRegistro($event)" *ngIf="hiddenSolicitud"></app-registro-usuario>
     </mat-card>
   </div>
-  <button class="float-btn-login" mat-fab color="primary">
-    <mat-icon>forward</mat-icon>Iniciar Sesion
+  <button class="float-btn-login"   mat-raised-button color="primary">
+    Login
+    <mat-icon>trending_flat</mat-icon>
   </button>
 </div>
+
