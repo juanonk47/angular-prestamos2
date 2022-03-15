@@ -10,14 +10,16 @@ import { catchError, Observable, of, tap } from 'rxjs';
 export class InterceptorService implements HttpInterceptor{
   intercept(req : HttpRequest<any>, next : HttpHandler) : Observable<HttpEvent<any>> {
     const httpReq = req.clone({
-      // url: req.url.replace("http://", "https://")
+      setHeaders: {
+        Authorization: `${localStorage.getItem(`${environment.JWT_KEY}`)}`
+      }
     });
     return next.handle(httpReq).pipe(
       tap(evet => {
         if(evet instanceof HttpResponse){
-          console.log(evet);
           if(evet.url?.includes("login")){
-            localStorage.setItem(`${environment.JWT_KEY}`,evet.body);
+            localStorage.setItem(`${environment.JWT_KEY}`,evet.body.Bearer);
+            localStorage.setItem(`${environment.JWT_KEY}-USER-ID`,evet.body.id_usuario);
           }
         }
       }),

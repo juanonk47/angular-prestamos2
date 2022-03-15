@@ -7,12 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
-import { LayoutComponent } from './pages/layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    LayoutComponent,
   ],
   imports: [
     BrowserModule,

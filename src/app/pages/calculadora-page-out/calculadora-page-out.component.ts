@@ -11,6 +11,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CalculadoraPageOutComponent implements OnInit {
   hiddenSolicitud = false;
+  soli: any = {}
   constructor(private service: CalculadoraService, public dialog: MatDialog) {}
 
   ngOnInit(): void {}
@@ -26,6 +27,7 @@ export class CalculadoraPageOutComponent implements OnInit {
 
   handleSolicitud(soli: Solicitud){
     this.hiddenSolicitud = true;
+    this.soli = soli;
   }
 
   hiddenRegistro(e: any){

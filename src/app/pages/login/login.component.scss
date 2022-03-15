@@ -1,0 +1,42 @@
+
+.bg {
+  /* The image used */
+  background-image: url("./../../../assets/gradiente-textura-granulada-degradada_23-2148974142.jpg");
+  // background-color: #333B5A;
+  /* Full height */
+  height:100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+
+}
+
+.center-section{
+  // border: 1px solid #2d2d2d;
+  align-items: center;
+  display: flex;
+}
+
+.card-solicitud{
+  width: 40vw;
+  height: 40vh;
+  padding: 10%;
+  padding-top: 100px;
+  padding-bottom: 20px;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,1),
+              0 1px 1px 0 rgba(0,0,0,1),
+              0 1px 3px 0 rgba(0,0,0,1);
+}
+.title-card {
+  text-align: center!important;
+}
+.full{
+  width: 100%!important;
+}

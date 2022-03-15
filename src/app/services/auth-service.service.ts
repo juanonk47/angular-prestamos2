@@ -16,8 +16,8 @@ export class AuthServiceService {
 
   public isAuthenticated(): Boolean {
     const token = localStorage.getItem(`${environment.JWT_KEY}`);
-    // return token? true: false
-    return true;
+    return token? true: false
+    // return true;
   }
 
   public Login(usuario: Usuario){

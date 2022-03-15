@@ -5,8 +5,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/home',
-  pathMatch: 'full'
+  redirectTo: '/out',
+  pathMatch: 'full',
 },
 {
   path: 'out',
@@ -15,6 +15,10 @@ const routes: Routes = [{
 {
   path: 'login',
   loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+},
+{
+  path: 'home',
+  loadChildren: () => import('./pages/layout/layout.module').then(m => m.LayoutModule),
 }
 ];
 

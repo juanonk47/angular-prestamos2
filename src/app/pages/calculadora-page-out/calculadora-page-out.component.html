@@ -2,10 +2,10 @@
   <div class="center-section">
     <mat-card class="card-solicitud">
       <app-solicitud-prestamo (buttonCredit)="handleSolicitud($event)" *ngIf="!hiddenSolicitud"></app-solicitud-prestamo>
-      <app-registro-usuario (returnSolicitud)="hiddenRegistro($event)" *ngIf="hiddenSolicitud"></app-registro-usuario>
+      <app-registro-usuario [soli]="soli" (returnSolicitud)="hiddenRegistro($event)" *ngIf="hiddenSolicitud"></app-registro-usuario>
     </mat-card>
   </div>
-  <button class="float-btn-login"   mat-raised-button color="primary">
+  <button class="float-btn-login" [routerLink]="['/login']"   mat-raised-button color="primary">
     Login
     <mat-icon>trending_flat</mat-icon>
   </button>

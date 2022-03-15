@@ -14,7 +14,7 @@ export class SolicitudService {
   constructor(private http: HttpClient){
   }
 
-  public create_new_solicitud(solicitud: Solicitud): Observable<Solicitud>{
+  public create_new_solicitud(solicitud: any): Observable<Solicitud>{
     return this.http.post<Solicitud>(`${this.apiUrl}`,solicitud).pipe(retry(3));
   }
 

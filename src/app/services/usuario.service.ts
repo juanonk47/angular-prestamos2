@@ -20,7 +20,7 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.apiUrl}`).pipe(retry(3));
   }
 
-  public create_user(usuario: Usuario): Observable<Usuario>{
+  public create_user(usuario: Usuario): Observable<any>{
     return this.http.post<Usuario>(`${this.apiUrl}`,usuario).pipe(retry(3))
   }
 
